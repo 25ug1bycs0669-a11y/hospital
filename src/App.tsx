@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
 import {
-  Activity, BedDouble, Bell, BriefcaseMedical, CalendarDays, ChevronDown, ClipboardList,
+  BedDouble, Bell, BriefcaseMedical, CalendarDays, ClipboardList,
   CreditCard, FlaskConical, HeartPulse, LayoutDashboard, LogOut, Menu, Pill, Settings,
-  ShieldCheck, Stethoscope, UserRound, UsersRound, X, Building2, FileHeart, ChartNoAxesCombined
+  ShieldCheck, Stethoscope, UsersRound, X, Building2, FileHeart, ChartNoAxesCombined
 } from "lucide-react";
 import { useAuth } from "./auth/AuthContext";
 import { LoginPage } from "./pages/LoginPage";
@@ -104,7 +104,7 @@ export function App() {
         </div>
       </header>
       <div className="content-scroll">
-        {activePage === "dashboard" && <DashboardPage />}
+        {activePage === "dashboard" && <DashboardPage onNewAppointment={allowedNavigation.some(item => item.id === "appointments") ? () => selectPage("appointments") : undefined} />}
         {activePage === "patients" && <PatientsPage notify={notify} />}
         {activePage === "doctors" && <DoctorsPage notify={notify} />}
         {activePage === "appointments" && <AppointmentsPage notify={notify} />}

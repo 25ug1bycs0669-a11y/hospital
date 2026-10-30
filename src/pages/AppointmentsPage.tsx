@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState, type FormEvent } from "react";
-import { CalendarClock, CalendarPlus, Check, Clock3, Pencil, XCircle } from "lucide-react";
+import { CalendarPlus, Check, Clock3, Pencil, XCircle } from "lucide-react";
 import { useAuth } from "../auth/AuthContext";
 import { Button, DataTable, ErrorState, FormActions, FormField, Modal, PageHeader, Pagination, SearchField, StatusBadge, formatDate } from "../components/UI";
 import { api } from "../lib/api";

@@ -4,8 +4,8 @@ import { fileURLToPath } from "node:url";
 import cookieParser from "cookie-parser";
 import express from "express";
 import helmet from "helmet";
-import { pool } from "./db";
-import { router } from "./routes";
+import { pool } from "./db.js";
+import { router } from "./routes.js";
 
 const app = express();
 const port = Number(process.env.PORT) || 3001;

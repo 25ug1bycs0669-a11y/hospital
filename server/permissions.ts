@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import type { Role } from "./types";
+import type { Role } from "./types.js";
 
 const rolePermissions: Record<Role, readonly string[]> = {
   admin: ["*"],

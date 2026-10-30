@@ -3,9 +3,9 @@ import bcrypt from "bcryptjs";
 import { Router } from "express";
 import { rateLimit } from "express-rate-limit";
 import { z } from "zod";
-import { authenticate, cookieOptions, createSession, deleteSession, sessionCookie } from "./auth";
-import { pool } from "./db";
-import { allow } from "./permissions";
+import { authenticate, cookieOptions, createSession, deleteSession, sessionCookie } from "./auth.js";
+import { pool } from "./db.js";
+import { allow } from "./permissions.js";
 
 export const router = Router();
 

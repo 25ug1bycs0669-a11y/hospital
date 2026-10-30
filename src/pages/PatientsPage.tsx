@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState, type FormEvent } from "react";
-import { Eye, Pencil, Plus, UserRound, X } from "lucide-react";
+import { Eye, Pencil, Plus } from "lucide-react";
 import { api } from "../lib/api";
 import type { PageResult, Patient } from "../types";
 import { useAuth } from "../auth/AuthContext";

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState, type FormEvent } from "react";
-import { BedDouble, Check, Construction, Plus, UserRound, X } from "lucide-react";
+import { BedDouble, Check, Construction, UserRound } from "lucide-react";
 import { useAuth } from "../auth/AuthContext";
-import { Button, DataTable, ErrorState, FormActions, FormField, Modal, PageHeader, Panel, PanelTitle, StatusBadge } from "../components/UI";
+import { DataTable, ErrorState, FormActions, FormField, Modal, PageHeader, Panel, PanelTitle, StatusBadge } from "../components/UI";
 import { api } from "../lib/api";
 import type { Bed, Patient } from "../types";
 

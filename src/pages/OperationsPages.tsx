@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import {
-  ArrowDown, ArrowUp, Building2, ClipboardList, CreditCard, FlaskConical,
-  Plus, ReceiptText, Settings2, ShieldCheck, UsersRound, Wallet
+  ArrowDown, ArrowUp, Building2, ClipboardList, CreditCard,
+  Plus, ReceiptText, ShieldCheck, UsersRound, Wallet
 } from "lucide-react";
 import { useAuth } from "../auth/AuthContext";
 import {
@@ -154,7 +154,6 @@ function roleLabel(role: Role) {
 }
 
 export function PharmacyPage({ notify }: { notify: Notify }) {
-  const { user } = useAuth();
   const [items, setItems] = useState<InventoryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");

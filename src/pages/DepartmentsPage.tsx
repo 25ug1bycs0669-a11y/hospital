@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowUpRight, HeartPulse, ScanHeart, Brain, Baby, Bone, Siren, Stethoscope } from "lucide-react";
+import { ArrowUpRight, HeartPulse, Brain, Baby, Bone, Siren, Stethoscope } from "lucide-react";
 import { ErrorState, Loading, PageHeader, Panel } from "../components/UI";
 import { api } from "../lib/api";
 import type { Department } from "../types";

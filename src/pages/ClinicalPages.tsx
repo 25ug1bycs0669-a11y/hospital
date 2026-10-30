@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { FileHeart, FilePlus2, LockKeyhole, Plus } from "lucide-react";
 import { useAuth } from "../auth/AuthContext";
-import { Button, DataTable, ErrorState, FormActions, FormField, Loading, Modal, PageHeader, Panel, PanelTitle, StatusBadge, formatDate } from "../components/UI";
+import { Button, ErrorState, FormActions, FormField, Loading, Modal, PageHeader, Panel, PanelTitle, StatusBadge, formatDate } from "../components/UI";
 import { api } from "../lib/api";
 import type { Patient } from "../types";
 
@@ -56,7 +56,7 @@ export function ClinicalPages({ notify }: { notify: (message: string) => void })
   return <div className="page-content">
     <PageHeader title="Electronic medical records" description="Review patient diagnoses, allergies, prescriptions, and treatment history."
       action={canWrite && selected && <Button onClick={() => setOpen(true)}><FilePlus2 size={16} /> Add clinical note</Button>} />
-    <div className="privacy-banner"><LockKeyhole size={17} /><span><strong>Confidential clinical information.</strong> Access is restricted by role and recorded in the system audit log.</span><StatusBadge status={user?.role.replaceAll("_", " ") ?? "Staff"} /></div>
+    <div className="privacy-banner"><LockKeyhole size={17} /><span><strong>Confidential clinical information.</strong> Access is restricted by role and recorded in the system audit log.</span><StatusBadge status={user?.role.replace(/_/g, " ") ?? "Staff"} /></div>
     {error && <div className="inline-warning">{error}<button onClick={() => setError("")}>Dismiss</button></div>}
     <section className="clinical-layout">
       <Panel className="clinical-patient-panel"><PanelTitle title="Patients" description="Select a record to review" />

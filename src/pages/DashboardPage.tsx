@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import {
-  Activity, ArrowDownRight, ArrowUpRight, BedDouble, CalendarDays, CircleDollarSign,
+  Activity, BedDouble, CalendarDays, CalendarPlus, CircleDollarSign,
   ClipboardPlus, DoorOpen, UsersRound, UserRound, AlertTriangle
 } from "lucide-react";
 import {
@@ -9,7 +9,7 @@ import {
 } from "recharts";
 import { api } from "../lib/api";
 import type { Appointment, DashboardSummary, PageResult, Patient } from "../types";
-import { ErrorState, formatCurrency, formatDate, Loading, Panel, PanelTitle, StatusBadge } from "../components/UI";
+import { Button, ErrorState, formatCurrency, formatDate, Loading, Panel, PanelTitle, StatusBadge } from "../components/UI";
 
 interface DashboardData {
   summary: DashboardSummary;
@@ -17,7 +17,7 @@ interface DashboardData {
   appointments: PageResult<Appointment>;
 }
 
-export function DashboardPage() {
+export function DashboardPage({ onNewAppointment }: { onNewAppointment?: () => void }) {
   const [data, setData] = useState<DashboardData | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -56,7 +56,7 @@ export function DashboardPage() {
       <div><p className="eyebrow">{new Intl.DateTimeFormat("en", { weekday: "long", month: "long", day: "numeric" }).format(new Date())}</p>
         <h1>Good morning, care team <span aria-hidden="true">✦</span></h1>
         <p>Here is your hospital at a glance.</p></div>
-      <div className="welcome-decoration"><HeartPulseMark /><span>Every detail helps deliver<br />a more thoughtful patient experience.</span></div>
+      {onNewAppointment && <Button onClick={onNewAppointment}><CalendarPlus size={16} /> New appointment</Button>}
     </header>
 
     {error && <div className="inline-warning"><AlertTriangle size={15} />{error}<button onClick={() => void load()}>Retry</button></div>}
@@ -132,8 +132,4 @@ export function DashboardPage() {
 
 function initials(name: string) {
   return name.split(/\s+/).slice(0, 2).map(part => part[0]).join("").toUpperCase();
-}
-
-function HeartPulseMark() {
-  return <span className="heart-mark"><HeartPulse size={32} /></span>;
 }

@@ -1,5 +1,5 @@
 import type { Request } from "express";
-import type { Role, User } from "../src/types";
+import type { Role, User } from "../src/types.js";
 
 declare global {
   namespace Express {

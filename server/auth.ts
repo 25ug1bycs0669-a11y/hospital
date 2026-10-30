@@ -1,7 +1,7 @@
 import { createHash, randomBytes } from "node:crypto";
 import type { NextFunction, Request, Response } from "express";
-import { pool } from "./db";
-import type { User } from "../src/types";
+import { pool } from "./db.js";
+import type { User } from "../src/types.js";
 
 export const sessionCookie = "carepoint_session";
 const sessionHours = Math.max(1, Number(process.env.SESSION_HOURS) || 8);

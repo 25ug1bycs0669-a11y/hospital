@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { pool } from "./db";
+import { pool } from "./db.js";
 
 async function migrate(): Promise<void> {
   try {

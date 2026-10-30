@@ -1,6 +1,6 @@
 import "dotenv/config";
 import bcrypt from "bcryptjs";
-import { pool } from "./db";
+import { pool } from "./db.js";
 
 async function seed(): Promise<void> {
   const email = process.env.ADMIN_EMAIL?.trim().toLowerCase();
